@@ -2,6 +2,12 @@ run.config:
   engine: ruby
   engine.config:
     runtime: ruby-2.4
+
+  extra_steps:
+    - npm install
+
+  cache_dirs:
+    - bower_components
   # add extra packages
   extra_packages:
     - nodejs
