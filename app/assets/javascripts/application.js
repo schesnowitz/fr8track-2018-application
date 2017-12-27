@@ -18,9 +18,7 @@
 //= require activestorage
 //= require turbolinks
 
-//= require jquery/dist/jquery.min.js
-//= require popper.js/dist/umd/popper.min.js
-//= require bootstrap/dist/js/bootstrap.min.js
+
 //= require jquery.scrollbar/jquery.scrollbar.min.js
 //= require jquery-scrollLock/jquery-scrollLock.min.js
 
