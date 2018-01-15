@@ -11,12 +11,16 @@
 // about supported directives.
 //
 
+
+
+
+
 //= require jquery3
 //= require popper
 //= require bootstrap
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+
 
 
 //= require jquery.scrollbar/jquery.scrollbar.min.js
@@ -41,3 +45,6 @@
 //= require js/jqvmap.js
 
 //= require js/app.min.js
+
+//= require custom_themes.js
+

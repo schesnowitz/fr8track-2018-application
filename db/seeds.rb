@@ -1,7 +1,19 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+app_setting = AppSetting.create!(
+  hidden_sidebar: true
+)
+
+app_setting = AppSetting.find_or_initialize_by(id: 1)
+
+app_setting.save 
+
+
+# 1..10.each do |num|
+
+
+
+
+# theme_color = []                                                         
+# (1..10).each do |num|                                                       
+#   theme_color <<  ThemeColor.create!(color: "#{num}", app_setting_id: 1)                
+# end       
+# puts theme_color.inspect 
