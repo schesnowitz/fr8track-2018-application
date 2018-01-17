@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_14_061014) do
+ActiveRecord::Schema.define(version: 2018_01_17_074513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 2018_01_14_061014) do
     t.string "theme_color"
     t.boolean "hidden_sidebar"
     t.boolean "boxed_content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "kt_reports", force: :cascade do |t|
+    t.string "time_zone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

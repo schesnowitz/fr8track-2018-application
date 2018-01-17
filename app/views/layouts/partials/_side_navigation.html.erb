@@ -20,13 +20,37 @@
       </div>
     </div>
     <ul class="navigation">
-      <li class="navigation__active"><a href="index.html"><i class="zmdi zmdi-home"></i> Home</a></li>
+      
+
+
+      <li class="">
+      <%= link_to root_path do %>
+        <i class="zmdi zmdi-home"></i> Home
+        <% end %>
+      </li>
+      
+      <li class="">
+      <%= link_to kt_reports_path do %> 
+        <i class="zmdi zmdi-view-week"></i> KT Reports
+        <% end %>
+      </li>
+
+      
       <li class="navigation__sub">
-        <a href=""><i class="zmdi zmdi-view-week"></i> Variants</a>
+        <a href=""><i class="zmdi zmdi-view-week"></i> Administration</a>
         <ul>
-          <li><a href="hidden-sidebar.html">Hidden Sidebar</a></li>
-          <li><a href="boxed-layout.html">Boxed Layout</a></li>
-          <li><a href="hidden-sidebar-boxed-layout.html">Boxed Layout with Hidden Sidebar</a></li>
+      <li class="">
+      <%= link_to edit_app_setting_path(@app_setting) do %> 
+           App Settings
+        <% end %>
+      </li>
+
+      <li class="">
+      <%= link_to edit_theme_path(@app_setting) do %> 
+           Edit Theme
+        <% end %>
+      </li>
+
         </ul>
       </li>
       <li><a href="typography.html"><i class="zmdi zmdi-format-underlined"></i> Typography</a></li>

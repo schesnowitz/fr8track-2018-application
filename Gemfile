@@ -23,7 +23,7 @@ gem 'sidekiq'
 gem 'simple_form', '~> 3.5' # rails generate simple_form:install --bootstrap
 
 gem 'font-awesome-sass', '~> 4.7.0'
-
+gem 'httparty', '~> 0.15.6'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

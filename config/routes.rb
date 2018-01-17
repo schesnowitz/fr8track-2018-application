@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'pages/index'
-
+  resources :kt_reports
+  resources :kt_reports
   resources :app_settings
   root 'pages#index' 
 

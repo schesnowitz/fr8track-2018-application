@@ -1,0 +1,2 @@
+module KtReportsHelper
+end
