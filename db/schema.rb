@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_17_074513) do
+ActiveRecord::Schema.define(version: 2018_01_19_180325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,32 @@ ActiveRecord::Schema.define(version: 2018_01_17_074513) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["confirmation_token"], name: "index_admins_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_admins_on_unlock_token", unique: true
+  end
+
   create_table "app_settings", force: :cascade do |t|
     t.string "theme_color"
     t.boolean "hidden_sidebar"
@@ -44,8 +70,66 @@ ActiveRecord::Schema.define(version: 2018_01_17_074513) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "driver_profiles", force: :cascade do |t|
+    t.string "email"
+    t.string "first_name"
+    t.string "last_name"
+    t.date "dob"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "telephone"
+    t.string "image"
+    t.string "driver_string_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "drivers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "driver_profile_id"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["confirmation_token"], name: "index_drivers_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_drivers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_drivers_on_unlock_token", unique: true
+  end
+
   create_table "kt_reports", force: :cascade do |t|
     t.string "time_zone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string "kt_vehicle_id"
+    t.string "vin"
+    t.string "year"
+    t.string "make"
+    t.string "model"
+    t.string "fuel_type"
+    t.string "plate_state"
+    t.string "plate_number"
+    t.string "odometer_units"
+    t.string "edl_sn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,108 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @driver_profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @driver_profile.last_name %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @driver_profile.dob %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @driver_profile.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @driver_profile.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @driver_profile.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @driver_profile.zip %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @driver_profile.telephone %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @driver_profile.image %>
+</p>
+
+<p>
+  <strong>Driver ID:</strong>
+  <%= @driver_profile.driver_string_id %>
+     
+</p>
+
+
+
+<%= link_to 'Edit', edit_driver_profile_path(@driver_profile) %> |
+<%= link_to 'Back', driver_profiles_path %>
+
+<% @vehicle_locations_response.vehicles.each do |data| %>
+  <% @current_driver = data.vehicle.current_driver %>
+  <% @vehicle = data.vehicle %>
+
+  <% @current_location = data.vehicle.current_location %>
+ <% if !@current_driver.nil? && @current_driver.driver_company_id == @driver_profile.driver_string_id %>
+<p>
+  <strong>Name</strong>
+    <%= "#{@current_driver.first_name} #{@current_driver.last_name}" if !@current_driver.nil? %>
+</p>
+
+
+<p>
+  <strong>Lat Lng</strong>
+  <% if !@current_location.nil? %>
+    <%= "#{@current_location.lat} #{@current_location.lon}" %>
+  <% end %>
+</p>
+
+<p>
+  <strong>String ID</strong>
+ <%= @driver_profile.driver_string_id %>
+</p>
+
+<p>
+  <strong>API ID</strong>
+ <%= @current_driver.driver_company_id if !@current_driver.nil? %>
+</p>
+
+<%= "************************************" %>
+
+
+<%= javascript_include_tag 'driver_profile_show' %>  
+
+
+
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>Drivers Current Location</h3>
+    <div id="map"></div>
+   
+lat: <%= @current_location.lat if !@current_location.nil? %>, lng: <%= @current_location.lon if !@current_location.nil? %>
+<% end %>
+<% end %>

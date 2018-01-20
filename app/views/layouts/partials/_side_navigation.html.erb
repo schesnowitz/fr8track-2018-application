@@ -71,22 +71,18 @@
         </ul>
       </li>
       <li class="navigation__sub">
-        <a href=""><i class="zmdi zmdi-swap-alt"></i> User Interface</a>
+        <a href=""><i class="zmdi zmdi-swap-alt"></i> Drivers</a>
         <ul>
-          <li><a href="colors.html">Colors</a></li>
-          <li><a href="css-animations.html">CSS Animations</a></li>
-          <li><a href="buttons.html">Buttons</a></li>
-          <li><a href="icons.html">Icons</a></li>
-          <li><a href="listview.html">Listview</a></li>
-          <li><a href="toolbars.html">Toolbars</a></li>
-          <li><a href="cards.html">Cards</a></li>
-          <li><a href="alerts.html">Alerts</a></li>
-          <li><a href="badges.html">Badges</a></li>
-          <li><a href="breadcrumbs.html">Bredcrumbs</a></li>
-          <li><a href="jumbotron.html">Jumbotron</a></li>
-          <li><a href="navs.html">Navs</a></li>
-          <li><a href="pagination.html">Pagination</a></li>
-          <li><a href="progress.html">Progress</a></li>
+        <% if current_driver %>
+          <li><%= link_to "Edit Email/Password", edit_driver_registration_path %></li>
+
+          <li><%= link_to "End Session", destroy_driver_session_path, method: :delete %></li>
+          <% end %> 
+          <% if !current_driver %>
+          <li><%= link_to "Driver Sign In", new_driver_session_path %></li>
+          <li><%= link_to "Driver Registration", new_driver_registration_path %></li>
+          <% end %>
+
         </ul>
       </li>
       <li class="navigation__sub">

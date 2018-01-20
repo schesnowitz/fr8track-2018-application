@@ -21,11 +21,14 @@ gem 'mini_magick', '~> 4.8'
 gem 'faker', '~> 1.8', '>= 1.8.4'
 gem 'sidekiq'
 gem 'simple_form', '~> 3.5' # rails generate simple_form:install --bootstrap
-
+gem 'devise', '~> 4.4'
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'httparty', '~> 0.15.6'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -41,6 +44,7 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem "figaro" # bundle exec figaro install
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

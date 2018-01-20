@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Kt vehicle:</strong>
+  <%= @vehicle.kt_vehicle_id %>
+</p>
+
+<p>
+  <strong>Vin:</strong>
+  <%= @vehicle.vin %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @vehicle.year %>
+</p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @vehicle.make %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @vehicle.model %>
+</p>
+
+<p>
+  <strong>Fuel type:</strong>
+  <%= @vehicle.fuel_type %>
+</p>
+
+<p>
+  <strong>Plate state:</strong>
+  <%= @vehicle.plate_state %>
+</p>
+
+<p>
+  <strong>Plate number:</strong>
+  <%= @vehicle.plate_number %>
+</p>
+
+<p>
+  <strong>Odometer units:</strong>
+  <%= @vehicle.odometer_units %>
+</p>
+
+<p>
+  <strong>Edl sn:</strong>
+  <%= @vehicle.edl_sn %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>

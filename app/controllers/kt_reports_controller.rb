@@ -13,7 +13,8 @@ class KtReportsController < ApplicationController
     @kt_users = HTTParty.get("#{url}/users", headers: headers)
     @reports = JSON.parse(@kt_users.body, object_class: OpenStruct)
     @kt_reports = @reports.users
-    # puts @kt_reports
+    @driver_profile = DriverProfile.all
+    vehicle_locations
   end
 
   # GET /kt_reports/1

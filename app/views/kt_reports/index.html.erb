@@ -6,7 +6,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>ID</th>
+      <th>Driver Company ID</th>
+      <th>Lat/Lng</th>
       <th>Duty Status</th>
       <th>Email</th>
       <th colspan="3"></th>
@@ -14,15 +15,34 @@
   </thead>
 
   <tbody>
-    <% @kt_reports.each do |data| %>
-
+<% @vehicle_locations_response.vehicles.each do |data| %>
+  <% @vehicle = data.vehicle %>
+  <% @current_driver = data.vehicle.current_driver %>
+  <% @current_location = data.vehicle.current_location %>
 
       <tr>
-        <td><%= "#{data.user.first_name} #{data.user.last_name}" %></td>
-        <td><%= data.user.id %></td>
-        <td><%= data.user.duty_status %></td>
-        <td><%= data.user.email %></td>
-        <td><%= link_to 'Show', "#" %></td>
+        
+          <td>
+            <% if !@current_driver.nil? %>
+              <%= "#{@current_driver.first_name} #{@current_driver.last_name}" %>
+            <% end %>  
+          </td>
+        
+        <td>
+         <% if !@current_driver.nil? %>
+          <%= @current_driver.driver_company_id %>
+        <% end %> 
+        </td>
+        
+        <td>
+        <% if !@current_location.nil? %>
+        <%= "#{@current_location.lat} #{@current_location.lon}" %>
+        <% end %>
+        </td>
+        
+        
+
+        <td><%= link_to 'Show', driver_profile_driver_path(@current_driver.driver_company_id) if !@current_driver.driver_company_id.nil? %></td>
         <td><%= link_to 'Edit', "#" %></td>
        
       </tr>
@@ -33,5 +53,10 @@
 <br>
 
 <%= link_to 'New Kt Report', new_kt_report_path %>
+
+
+
+
+
 
 

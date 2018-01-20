@@ -3,8 +3,11 @@
   <head>
     <title>FrontEnd</title>
     <%= csrf_meta_tags %>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
 
@@ -23,6 +26,7 @@
 <%= render 'layouts/partials/themes' %>
 
 <section class="content">
+<%= bootstrap_flash %>
 <% if @app_setting.boxed_content == true %> 
  <div class="content__inner">
 <% end %>
@@ -42,3 +46,7 @@
 
   </body>
 </html>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["GOOGLE_MAPS_KEY"]%>&callback=initMap">
+</script> 
+
