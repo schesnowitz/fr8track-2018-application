@@ -1,0 +1,10 @@
+# create_vehicle_job:
+#   cron: "* * * * *"
+#   class: "CreateVehicleJob"  
+#   queue: default 
+update_vehicle_job:
+  cron: "* * * * *"
+  class: "UpdateVehicleJob"  
+  queue: default 
+
+  

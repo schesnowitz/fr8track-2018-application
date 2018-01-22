@@ -1,3 +1,0 @@
-class KtReport < ApplicationRecord
-
-end

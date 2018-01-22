@@ -2,16 +2,30 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :kt_vehicle_id %>
+    <%= f.input :api_vehicle_id %>
+    <%= f.input :number %>
+    <%= f.input :status %>
+    <%= f.input :ifta %>
     <%= f.input :vin %>
-    <%= f.input :year %>
     <%= f.input :make %>
     <%= f.input :model %>
+    <%= f.input :year %>
+    <%= f.input :license_plate_state %>
+    <%= f.input :license_plate_number %>
+    <%= f.input :metric_units %>
     <%= f.input :fuel_type %>
-    <%= f.input :plate_state %>
-    <%= f.input :plate_number %>
-    <%= f.input :odometer_units %>
-    <%= f.input :edl_sn %>
+    <%= f.input :prevent_auto_odometer_entry %>
+    <%= f.input :edl_device_id %>
+    <%= f.input :edl_identifier %>
+    <%= f.input :edl_model %>
+    <%= f.input :api_driver_id %>
+    <%= f.input :api_first_name %>
+    <%= f.input :api_last_name %>
+    <%= f.input :api_username %>
+    <%= f.input :api_email %>
+    <%= f.input :api_driver_company_id %>
+    <%= f.input :api_status %>
+    <%= f.input :api_role %>
   </div>
 
   <div class="form-actions">

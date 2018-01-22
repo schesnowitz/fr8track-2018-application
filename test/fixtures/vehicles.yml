@@ -1,25 +1,53 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  kt_vehicle_id: MyString
+  api_vehicle_id: 1
+  number: MyString
+  status: MyString
+  ifta: false
   vin: MyString
-  year: MyString
   make: MyString
   model: MyString
+  year: MyString
+  license_plate_state: MyString
+  license_plate_number: MyString
+  metric_units: false
   fuel_type: MyString
-  plate_state: MyString
-  plate_number: MyString
-  odometer_units: MyString
-  edl_sn: MyString
+  prevent_auto_odometer_entry: false
+  edl_device_id: 1
+  edl_identifier: MyString
+  edl_model: MyString
+  api_driver_id: 1
+  api_first_name: MyString
+  api_last_name: MyString
+  api_username: MyString
+  api_email: MyString
+  api_driver_company_id: MyString
+  api_status: MyString
+  api_role: MyString
 
 two:
-  kt_vehicle_id: MyString
+  api_vehicle_id: 1
+  number: MyString
+  status: MyString
+  ifta: false
   vin: MyString
-  year: MyString
   make: MyString
   model: MyString
+  year: MyString
+  license_plate_state: MyString
+  license_plate_number: MyString
+  metric_units: false
   fuel_type: MyString
-  plate_state: MyString
-  plate_number: MyString
-  odometer_units: MyString
-  edl_sn: MyString
+  prevent_auto_odometer_entry: false
+  edl_device_id: 1
+  edl_identifier: MyString
+  edl_model: MyString
+  api_driver_id: 1
+  api_first_name: MyString
+  api_last_name: MyString
+  api_username: MyString
+  api_email: MyString
+  api_driver_company_id: MyString
+  api_status: MyString
+  api_role: MyString

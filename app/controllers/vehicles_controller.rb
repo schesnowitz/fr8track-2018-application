@@ -19,6 +19,8 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles/1/edit
   def edit
+    vehicles
+
   end
 
   # POST /vehicles
@@ -40,6 +42,7 @@ class VehiclesController < ApplicationController
   # PATCH/PUT /vehicles/1
   # PATCH/PUT /vehicles/1.json
   def update
+  
     respond_to do |format|
       if @vehicle.update(vehicle_params)
         format.html { redirect_to @vehicle, notice: 'Vehicle was successfully updated.' }
@@ -69,6 +72,6 @@ class VehiclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_params
-      params.require(:vehicle).permit(:kt_vehicle_id, :vin, :year, :make, :model, :fuel_type, :plate_state, :plate_number, :odometer_units, :edl_sn)
+      params.require(:vehicle).permit(:api_vehicle_id, :api_vehicle_company_id, :number, :status, :ifta, :vin, :make, :model, :year, :license_plate_state, :license_plate_number, :metric_units, :fuel_type, :prevent_auto_odometer_entry, :edl_device_id, :edl_identifier, :edl_model, :api_driver_id, :api_first_name, :api_last_name, :api_username, :api_email, :api_driver_company_id, :api_status, :api_role)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_19_180325) do
+ActiveRecord::Schema.define(version: 2018_01_21_131400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,23 +113,32 @@ ActiveRecord::Schema.define(version: 2018_01_19_180325) do
     t.index ["unlock_token"], name: "index_drivers_on_unlock_token", unique: true
   end
 
-  create_table "kt_reports", force: :cascade do |t|
-    t.string "time_zone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "vehicles", force: :cascade do |t|
-    t.string "kt_vehicle_id"
+    t.integer "api_vehicle_company_id"
+    t.integer "api_vehicle_id"
+    t.string "number"
+    t.string "status"
+    t.boolean "ifta"
     t.string "vin"
-    t.string "year"
     t.string "make"
     t.string "model"
+    t.string "year"
+    t.string "license_plate_state"
+    t.string "license_plate_number"
+    t.boolean "metric_units"
     t.string "fuel_type"
-    t.string "plate_state"
-    t.string "plate_number"
-    t.string "odometer_units"
-    t.string "edl_sn"
+    t.boolean "prevent_auto_odometer_entry"
+    t.integer "edl_device_id"
+    t.string "edl_identifier"
+    t.string "edl_model"
+    t.integer "api_driver_id"
+    t.string "api_first_name"
+    t.string "api_last_name"
+    t.string "api_username"
+    t.string "api_email"
+    t.string "api_driver_company_id"
+    t.string "api_status"
+    t.string "api_role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

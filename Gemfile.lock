@@ -89,6 +89,8 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.7.0)
+    et-orbi (1.0.9)
+      tzinfo
     execjs (2.7.0)
     faker (1.8.7)
       i18n (>= 0.7)
@@ -97,9 +99,9 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    geocoder (1.4.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    gmaps4rails (2.1.2)
     httparty (0.15.6)
       multi_xml (>= 0.5.2)
     i18n (0.9.1)
@@ -176,6 +178,8 @@ GEM
       railties (>= 4.2.0, < 5.3)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
+    rufus-scheduler (3.4.2)
+      et-orbi (~> 1.0)
     sass (3.5.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -195,6 +199,9 @@ GEM
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.4, < 5)
+    sidekiq-cron (0.6.3)
+      rufus-scheduler (>= 3.3.0)
+      sidekiq (>= 4.2.1)
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
@@ -245,7 +252,7 @@ DEPENDENCIES
   faker (~> 1.8, >= 1.8.4)
   figaro
   font-awesome-sass (~> 4.7.0)
-  gmaps4rails (~> 2.1, >= 2.1.2)
+  geocoder (~> 1.4, >= 1.4.5)
   httparty (~> 0.15.6)
   jbuilder (~> 2.5)
   jquery-rails
@@ -258,7 +265,8 @@ DEPENDENCIES
   redis (~> 4.0)
   sass-rails (~> 5.0)
   selenium-webdriver
-  sidekiq
+  sidekiq (~> 5.0, >= 5.0.5)
+  sidekiq-cron (~> 0.6.3)
   simple_form (~> 3.5)
   spring
   spring-watcher-listen (~> 2.0.0)

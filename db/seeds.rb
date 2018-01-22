@@ -37,7 +37,7 @@ puts driver_profile_3.inspect
 
 
 app_setting = AppSetting.create!(
-  hidden_sidebar: true,
+  hidden_sidebar: false,
   theme_color: '2'
 )
 

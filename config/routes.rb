@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-
+  resources :vehicles
+require 'sidekiq/web'
+require 'sidekiq/cron/web'
   
 
 
@@ -18,6 +20,6 @@ Rails.application.routes.draw do
 
 
   get 'edit_theme', to: 'app_settings#edit_theme'
-
+  mount Sidekiq::Web => '/sidekiq'
 
 end

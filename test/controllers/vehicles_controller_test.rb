@@ -17,7 +17,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create vehicle" do
     assert_difference('Vehicle.count') do
-      post vehicles_url, params: { vehicle: { edl_sn: @vehicle.edl_sn, fuel_type: @vehicle.fuel_type, kt_vehicle_id: @vehicle.kt_vehicle_id, make: @vehicle.make, model: @vehicle.model, odometer_units: @vehicle.odometer_units, plate_number: @vehicle.plate_number, plate_state: @vehicle.plate_state, vin: @vehicle.vin, year: @vehicle.year } }
+      post vehicles_url, params: { vehicle: { api_driver_company_id: @vehicle.api_driver_company_id, api_driver_id: @vehicle.api_driver_id, api_email: @vehicle.api_email, api_first_name: @vehicle.api_first_name, api_last_name: @vehicle.api_last_name, api_role: @vehicle.api_role, api_status: @vehicle.api_status, api_username: @vehicle.api_username, api_vehicle_id: @vehicle.api_vehicle_id, edl_device_id: @vehicle.edl_device_id, edl_identifier: @vehicle.edl_identifier, edl_model: @vehicle.edl_model, fuel_type: @vehicle.fuel_type, ifta: @vehicle.ifta, license_plate_number: @vehicle.license_plate_number, license_plate_state: @vehicle.license_plate_state, make: @vehicle.make, metric_units: @vehicle.metric_units, model: @vehicle.model, number: @vehicle.number, prevent_auto_odometer_entry: @vehicle.prevent_auto_odometer_entry, status: @vehicle.status, vin: @vehicle.vin, year: @vehicle.year } }
     end
 
     assert_redirected_to vehicle_url(Vehicle.last)
@@ -34,7 +34,7 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update vehicle" do
-    patch vehicle_url(@vehicle), params: { vehicle: { edl_sn: @vehicle.edl_sn, fuel_type: @vehicle.fuel_type, kt_vehicle_id: @vehicle.kt_vehicle_id, make: @vehicle.make, model: @vehicle.model, odometer_units: @vehicle.odometer_units, plate_number: @vehicle.plate_number, plate_state: @vehicle.plate_state, vin: @vehicle.vin, year: @vehicle.year } }
+    patch vehicle_url(@vehicle), params: { vehicle: { api_driver_company_id: @vehicle.api_driver_company_id, api_driver_id: @vehicle.api_driver_id, api_email: @vehicle.api_email, api_first_name: @vehicle.api_first_name, api_last_name: @vehicle.api_last_name, api_role: @vehicle.api_role, api_status: @vehicle.api_status, api_username: @vehicle.api_username, api_vehicle_id: @vehicle.api_vehicle_id, edl_device_id: @vehicle.edl_device_id, edl_identifier: @vehicle.edl_identifier, edl_model: @vehicle.edl_model, fuel_type: @vehicle.fuel_type, ifta: @vehicle.ifta, license_plate_number: @vehicle.license_plate_number, license_plate_state: @vehicle.license_plate_state, make: @vehicle.make, metric_units: @vehicle.metric_units, model: @vehicle.model, number: @vehicle.number, prevent_auto_odometer_entry: @vehicle.prevent_auto_odometer_entry, status: @vehicle.status, vin: @vehicle.vin, year: @vehicle.year } }
     assert_redirected_to vehicle_url(@vehicle)
   end
 

@@ -19,10 +19,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 4.0'
 gem 'mini_magick', '~> 4.8'
 gem 'faker', '~> 1.8', '>= 1.8.4'
-gem 'sidekiq'
+gem 'sidekiq', '~> 5.0', '>= 5.0.5'
+gem 'sidekiq-cron', '~> 0.6.3'
 gem 'simple_form', '~> 3.5' # rails generate simple_form:install --bootstrap
 gem 'devise', '~> 4.4'
-gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
+gem 'geocoder', '~> 1.4', '>= 1.4.5'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'httparty', '~> 0.15.6'
 # Reduces boot times through caching; required in config/boot.rb
