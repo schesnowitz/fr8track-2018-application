@@ -1,26 +1,53 @@
 class VehiclesController < ApplicationController
-  before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
+  before_action :set_vehicle, only: [:show, :edit, :update, :destroy, :api_update_vehicle]
 
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.all
-  end
+    @vehicles = Vehicle.where(["vin LIKE ?", "%#{params[:search_data]}%"])
+
+    vehicles
+    @search_vehicles = @vehicles_response.vehicles.where(["vin LIKE ?", "%#{params[:search_data]}%"])
+    
+    @vehicles_response.vehicles.each do |data|
+      @vehicle_response = data.vehicle  
+      @vehicle_driver_response = data.vehicle.current_driver 
+      
+      # @vehicles = Vehicle.all
+      
+      # puts SearchData
+      # puts "Vin Response #{@vehicle_response.vin}".class
+      # puts "Search #{@search}".class
+
+    end
+  end 
 
   # GET /vehicles/1
   # GET /vehicles/1.json
   def show
   end
 
-  # GET /vehicles/new
+  # GET /vehicles/new WP0AB2966NS458669
   def new
     @vehicle = Vehicle.new
+    @search = Vehicle.where(["vin LIKE ?", "%#{params[:search_data]}%"])
+    vehicles
+    @vehicles_response.vehicles.each do |data|
+      @vehicle_response = data.vehicle  
+      @vehicle_driver_response = data.vehicle.current_driver 
+      
+      # @vehicles = Vehicle.all
+      
+      # puts SearchData
+      # puts "Vin Response #{@vehicle_response.vin}".class
+      # puts "Search #{@search}".class
+
+    end
   end
 
   # GET /vehicles/1/edit
   def edit
     vehicles
-
   end
 
   # POST /vehicles
@@ -42,7 +69,6 @@ class VehiclesController < ApplicationController
   # PATCH/PUT /vehicles/1
   # PATCH/PUT /vehicles/1.json
   def update
-  
     respond_to do |format|
       if @vehicle.update(vehicle_params)
         format.html { redirect_to @vehicle, notice: 'Vehicle was successfully updated.' }
@@ -63,6 +89,10 @@ class VehiclesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def api_update_vehicle
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

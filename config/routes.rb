@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :vehicles
+
 require 'sidekiq/web'
 require 'sidekiq/cron/web'
   
 
-
+get 'vehicles/:id/api_update_vehicle', to: 'vehicles#api_update_vehicle'
   resources :vehicles
   devise_for :drivers, path: 'drivers', controllers: { registrations: 'drivers/registrations'} 
   resources :driver_profiles do
@@ -20,6 +20,7 @@ require 'sidekiq/cron/web'
 
 
   get 'edit_theme', to: 'app_settings#edit_theme'
+
   mount Sidekiq::Web => '/sidekiq'
 
 end

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def vehicles
     @url = 'https://api.keeptruckin.com/v1'
-    @headers = { 'content-type': 'application/json', 'X-Api-Key': '091333c7-bfcc-4724-a936-d7f4a02966e9' }
+    @headers = { 'content-type': 'application/json', 'X-Api-Key': ENV["KEEP_TRUCKIN_KEY"] } 
     @all_vehicles = HTTParty.get("#{@url}/vehicles", headers: @headers)
     @vehicles_response = JSON.parse(@all_vehicles.body, object_class: OpenStruct)
   end
