@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_21_131400) do
+ActiveRecord::Schema.define(version: 2018_01_24_040129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,24 +64,61 @@ ActiveRecord::Schema.define(version: 2018_01_21_131400) do
 
   create_table "app_settings", force: :cascade do |t|
     t.string "theme_color"
-    t.boolean "hidden_sidebar"
-    t.boolean "boxed_content"
+    t.boolean "hidden_sidebar", default: false
+    t.boolean "boxed_content", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "driver_profiles", force: :cascade do |t|
+    t.string "driver_internal_id"
+    t.integer "external_id"
     t.string "email"
     t.string "first_name"
     t.string "last_name"
-    t.date "dob"
-    t.string "street"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
-    t.string "telephone"
+    t.string "phone"
+    t.string "phone_ext"
     t.string "image"
-    t.string "driver_string_id"
+    t.string "emergency_contact_name"
+    t.string "emergency_contact_phone"
+    t.string "time_zone"
+    t.string "metric_units"
+    t.string "carrier_name"
+    t.string "carrier_street"
+    t.string "carrier_city"
+    t.string "carrier_state"
+    t.string "carrier_zip"
+    t.string "violation_alerts"
+    t.string "terminal_street"
+    t.string "terminal_city"
+    t.string "terminal_state"
+    t.string "terminal_zip"
+    t.string "cycle"
+    t.string "exception_24_hour_restart"
+    t.string "exception_8_hour_break"
+    t.string "exception_wait_time"
+    t.string "exception_short_haul"
+    t.string "exception_ca_farm_school_bus"
+    t.string "cycle2"
+    t.string "exception_24_hour_restart2"
+    t.string "exception_8_hour_break2"
+    t.string "exception_wait_time2"
+    t.string "exception_short_haul2"
+    t.string "exception_ca_farm_school_bus2"
+    t.string "export_combined"
+    t.string "export_recap"
+    t.string "export_odometers"
+    t.string "username"
+    t.string "minute_logs"
+    t.string "duty_status"
+    t.string "eld_mode"
+    t.string "drivers_license_number"
+    t.string "drivers_license_state"
+    t.string "yard_moves_enabled"
+    t.string "personal_conveyance_enabled"
+    t.string "manual_driving_enabled"
+    t.string "role"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

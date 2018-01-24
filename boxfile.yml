@@ -46,7 +46,7 @@ web.main:
 # add a worker component and give it a "start" command
 worker.main:
   start: bundle exec sidekiq -q default -q mailers -C /app/config/sidekiq.rb
-
+          # Sidekiq.redis { |flush| flush.flushdb }
 data.redis:
   image: nanobox/redis:3.0
 

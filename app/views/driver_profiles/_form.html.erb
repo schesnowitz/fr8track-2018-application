@@ -2,17 +2,32 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :driver_internal_id %>
+    <%= f.input :external_id %>
     <%= f.input :email %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
-    <%= f.input :dob %>
-    <%= f.input :street %>
-    <%= f.input :city %>
-    <%= f.input :state %>
-    <%= f.input :zip %>
-    <%= f.input :telephone %>
+    <%= f.input :minute_logs %>
+    <%= f.input :phone %>
+    <%= f.input :phone_ext %>
     <%= f.input :image %>
-
+    <%= f.input :emergency_contact_name %>
+    <%= f.input :emergency_contact_phone %>
+    <%= f.input :time_zone %>
+    <%= f.input :metric_units %>
+    <%= f.input :carrier_name %>
+    <%= f.input :carrier_street %>
+    <%= f.input :carrier_city %>
+    <%= f.input :carrier_state %>
+    <%= f.input :carrier_zip %>
+    <%= f.input :violation_alerts %>
+    <%= f.input :terminal_street %>
+    <%= f.input :terminal_city %>
+    <%= f.input :terminal_state %>
+    <%= f.input :terminal_zip %>
+    <%= f.input :drivers_license_number %>
+    <%= f.input :drivers_license_state %>
+    <%= f.input :status %>
   </div>
 
   <div class="form-actions">

@@ -47,4 +47,5 @@
 //= require js/app.min.js
 
 //= require custom_themes.js
+//= require reload.js 
 

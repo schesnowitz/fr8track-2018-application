@@ -6,7 +6,7 @@
 <%= submit_tag 'Search', class: 'btn btn-outline-info', name: nil %> 
 <% end %>
 
-<table class='table-striped table-bordered'>
+<table class='table-striped table-bordered' id='vehicle-index-table'>
   <thead>
     <tr>
       <th>Api vehicle</th>
@@ -60,4 +60,5 @@
 
 <br>
 
-<%= link_to 'New Vehicle', new_vehicle_path %>
+<%= link_to 'New Vehicle', new_vehicle_path %><br>
+

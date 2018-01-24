@@ -2,12 +2,16 @@
 
 <h1>Driver Profiles</h1>
 
-<table class='table-striped'>
+<table class='table-striped table-bordered'>
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Driver ID</th>
+      <th>Driver internal</th>
+      <th>External</th>
+      <th>Email</th>
+      <th>Name</th>
+
+      <th>Role</th>
+      <th>Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,11 +19,14 @@
   <tbody>
     <% @driver_profiles.each do |driver_profile| %>
       <tr>
-        <td><%= driver_profile.first_name %></td>
-        <td><%= driver_profile.last_name %></td>
+        <td><%= driver_profile.driver_internal_id %></td>
+        <td><%= driver_profile.external_id %></td>
+        <td><%= driver_profile.email %></td>
+        <td><%= "#{driver_profile.first_name} #{driver_profile.last_name}" %></td>
 
-        <td><%= driver_profile.driver_string_id %></td>
-        <td><%= link_to 'Show', driver_profile_path(driver_profile) %></td>
+        <td><%= driver_profile.role %></td>
+        <td><%= driver_profile.status %></td>
+        <td><%= link_to 'Show', driver_profile %></td>
         <td><%= link_to 'Edit', edit_driver_profile_path(driver_profile) %></td>
         <td><%= link_to 'Destroy', driver_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -30,5 +37,3 @@
 <br>
 
 <%= link_to 'New Driver Profile', new_driver_profile_path %>
-
-

@@ -10,44 +10,6 @@ class DriverProfilesController < ApplicationController
   # GET /driver_profiles/1
   # GET /driver_profiles/1.json
   def show
-    vehicle_locations
-
-    # @vehicle_locations_response.vehicles.each do |data|
-    #   @vehicle_data = data.vehicle
-    #   @current_driver_data = data.vehicle.current_driver
-    #   @current_location_data = data.vehicle.current_location
-    
-    #   if !@current_driver_data.nil? && @current_driver_data.driver_company_id == @driver_profile.driver_string_id
-    #     @vehicle = @vehicle_data
-    #     @current_driver = @current_driver_data
-    #     @location_data = @current_location_data
-    #   puts "Vehicle ID: #{@vehicle.id}"
-    #   puts "Vehicle number: #{@vehicle.number}"
-    #   puts "Vehicle VIN: #{@vehicle.vin}"
-    #   puts ''
-    # puts '---------------------START @current_driver'
-    # if !@current_driver.nil?
-    #   puts "First Name: #{@current_driver.first_name}"
-    #   puts "Last Name: #{@current_driver.last_name}"
-    #   puts "API driver_company_id: #{@current_driver.driver_company_id}"
-    # end
-    # puts '---------------------END @current_driver'
-    # puts ''
-    # puts '---------------------Start @current_location'
-    
-    # if !@current_location.nil?
-    #   puts "LAT: #{@current_location.lat}"
-    #   puts "LNG: #{@current_location.lat}"
-    # end
-    # puts '---------------------END @current_location'
-    # puts ''
-    
-    # end
-    # end
-    
-    
-    
-
   end
 
   # GET /driver_profiles/new
@@ -107,6 +69,6 @@ class DriverProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def driver_profile_params
-      params.require(:driver_profile).permit(:first_name, :last_name, :dob, :street, :city, :state, :zip, :telephone, :image, :driver_string_id, :email)
+      params.require(:driver_profile).permit(:driver_internal_id, :external_id, :email, :first_name, :last_name, :phone, :phone_ext, :image, :emergency_contact_name, :emergency_contact_phone, :time_zone, :metric_units, :carrier_name, :carrier_street, :carrier_city, :carrier_state, :carrier_zip, :violation_alerts, :terminal_street, :terminal_city, :terminal_state, :terminal_zip, :cycle, :exception_24_hour_restart, :exception_8_hour_break, :exception_wait_time, :exception_short_haul, :exception_ca_farm_school_bus, :cycle2, :exception_24_hour_restart2, :exception_8_hour_break2, :exception_wait_time2, :exception_short_haul2, :exception_ca_farm_school_bus2, :export_combined, :export_recap, :export_odometers, :username, :driver_company_id, :minute_logs, :duty_status, :eld_mode, :drivers_license_number, :drivers_license_state, :yard_moves_enabled, :personal_conveyance_enabled, :manual_driving_enabled, :role, :status)
     end
 end

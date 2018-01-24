@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     redirect_back(fallback_location: root_path)
   end 
 
-  def vehicles
+  def keep_truckin_vehicles
     @url = 'https://api.keeptruckin.com/v1'
     @headers = { 'content-type': 'application/json', 'X-Api-Key': ENV["KEEP_TRUCKIN_KEY"] } 
     @all_vehicles = HTTParty.get("#{@url}/vehicles", headers: @headers)

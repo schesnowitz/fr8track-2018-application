@@ -1,10 +1,12 @@
-create_vehicle_job:
+create_update_driver_profile_job:
   cron: "* * * * *"
-  class: "CreateVehicleJob"  
+  class: "CreateUpdateDriverProfileJob"  
   queue: default 
-# update_vehicle_job:
-#   cron: "* * * * *"
-#   class: "UpdateVehicleJob"  
-#   queue: default 
+
+
+create_update_vehicle_job:
+  cron: "* * * * *"
+  class: "CreateUpdateVehicleJob"  
+  queue: default 
 
   

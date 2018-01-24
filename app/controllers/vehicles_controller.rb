@@ -1,24 +1,16 @@
 class VehiclesController < ApplicationController
-  before_action :set_vehicle, only: [:show, :edit, :update, :destroy, :api_update_vehicle]
+  before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
 
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.where(["vin LIKE ?", "%#{params[:search_data]}%"])
+    @vehicles = Vehicle.all
 
-    vehicles
-    @search_vehicles = @vehicles_response.vehicles.where(["vin LIKE ?", "%#{params[:search_data]}%"])
-    
+    keep_truckin_vehicles
     @vehicles_response.vehicles.each do |data|
-      @vehicle_response = data.vehicle  
-      @vehicle_driver_response = data.vehicle.current_driver 
-      
-      # @vehicles = Vehicle.all
-      
-      # puts SearchData
-      # puts "Vin Response #{@vehicle_response.vin}".class
-      # puts "Search #{@search}".class
+    response = data.vehicle
 
+    puts response.vin
     end
   end 
 
@@ -31,7 +23,7 @@ class VehiclesController < ApplicationController
   def new
     @vehicle = Vehicle.new
     @search = Vehicle.where(["vin LIKE ?", "%#{params[:search_data]}%"])
-    vehicles
+    keep_truckin_vehicles
     @vehicles_response.vehicles.each do |data|
       @vehicle_response = data.vehicle  
       @vehicle_driver_response = data.vehicle.current_driver 
@@ -47,7 +39,7 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles/1/edit
   def edit
-    vehicles
+
   end
 
   # POST /vehicles
@@ -69,6 +61,18 @@ class VehiclesController < ApplicationController
   # PATCH/PUT /vehicles/1
   # PATCH/PUT /vehicles/1.json
   def update
+
+
+
+   
+    # @url = 'https://api.keeptruckin.com/v1'
+    # @headers = { 'content-type': 'application/json', 'X-Api-Key': ENV["KEEP_TRUCKIN_KEY"] } 
+    # @all_vehicles = HTTParty.get("#{@url}/vehicles", headers: @headers)
+
+    # Client.post(url,:query =>  { :param =>  "value" },
+    # :headers =>  { "Authorization" =>  "THISISMYAPIKEY"})
+
+
     respond_to do |format|
       if @vehicle.update(vehicle_params)
         format.html { redirect_to @vehicle, notice: 'Vehicle was successfully updated.' }

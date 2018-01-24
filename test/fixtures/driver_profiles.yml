@@ -1,25 +1,103 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  driver_internal_id: MyString
+  external_id: 1
+  email: MyString
   first_name: MyString
   last_name: MyString
-  dob: 2018-01-19
-  street: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
-  telephone: MyString
+  phone: MyString
+  phone_ext: MyString
   image: MyString
+  emergency_contact_name: MyString
+  emergency_contact_phone: MyString
+  time_zone: MyString
+  metric_units: MyString
+  carrier_name: MyString
+  carrier_street: MyString
+  carrier_city: MyString
+  carrier_state: MyString
+  carrier_zip: MyString
+  violation_alerts: MyString
+  terminal_street: MyString
+  terminal_city: MyString
+  terminal_state: MyString
+  terminal_zip: MyString
+  cycle: MyString
+  exception_24_hour_restart: MyString
+  exception_8_hour_break: MyString
+  exception_wait_time: MyString
+  exception_short_haul: MyString
+  exception_ca_farm_school_bus: MyString
+  cycle2: MyString
+  exception_24_hour_restart2: MyString
+  exception_8_hour_break2: MyString
+  exception_wait_time2: MyString
+  exception_short_haul2: MyString
+  exception_ca_farm_school_bus2: MyString
+  export_combined: MyString
+  export_recap: MyString
+  export_odometers: MyString
+  username: MyString
   driver_company_id: MyString
+  minute_logs: MyString
+  duty_status: MyString
+  eld_mode: MyString
+  drivers_license_number: MyString
+  drivers_license_state: MyString
+  yard_moves_enabled: MyString
+  personal_conveyance_enabled: MyString
+  manual_driving_enabled: MyString
+  role: MyString
+  status: MyString
 
 two:
+  driver_internal_id: MyString
+  external_id: 1
+  email: MyString
   first_name: MyString
   last_name: MyString
-  dob: 2018-01-19
-  street: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
-  telephone: MyString
+  phone: MyString
+  phone_ext: MyString
   image: MyString
+  emergency_contact_name: MyString
+  emergency_contact_phone: MyString
+  time_zone: MyString
+  metric_units: MyString
+  carrier_name: MyString
+  carrier_street: MyString
+  carrier_city: MyString
+  carrier_state: MyString
+  carrier_zip: MyString
+  violation_alerts: MyString
+  terminal_street: MyString
+  terminal_city: MyString
+  terminal_state: MyString
+  terminal_zip: MyString
+  cycle: MyString
+  exception_24_hour_restart: MyString
+  exception_8_hour_break: MyString
+  exception_wait_time: MyString
+  exception_short_haul: MyString
+  exception_ca_farm_school_bus: MyString
+  cycle2: MyString
+  exception_24_hour_restart2: MyString
+  exception_8_hour_break2: MyString
+  exception_wait_time2: MyString
+  exception_short_haul2: MyString
+  exception_ca_farm_school_bus2: MyString
+  export_combined: MyString
+  export_recap: MyString
+  export_odometers: MyString
+  username: MyString
   driver_company_id: MyString
+  minute_logs: MyString
+  duty_status: MyString
+  eld_mode: MyString
+  drivers_license_number: MyString
+  drivers_license_state: MyString
+  yard_moves_enabled: MyString
+  personal_conveyance_enabled: MyString
+  manual_driving_enabled: MyString
+  role: MyString
+  status: MyString
