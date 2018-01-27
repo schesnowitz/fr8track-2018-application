@@ -18,8 +18,7 @@ class CreateUpdateVehicleJob < ApplicationJob
       response_edl_model = vehicle.eld_device.model
     end
  
-      response_vehicle_id = vehicle.id
-      response_vehicle_company_id = vehicle.company_id
+      api_id = vehicle.id
       response_vehicle_number = vehicle.number 
       response_vehicle_status = vehicle.status 
       response_vehicle_vin = vehicle.vin
@@ -38,9 +37,6 @@ class CreateUpdateVehicleJob < ApplicationJob
     if !driver.nil? && !driver.last_name.nil?
       response_driver_last_name = driver.last_name
     end
-    if !driver.nil? && !driver.driver_company_id.nil?
-      response_driver_company_id = driver.driver_company_id
-    end
     if !driver.nil? && !driver.id.nil?
       response_driver_id = driver.id
     end 
@@ -58,10 +54,9 @@ class CreateUpdateVehicleJob < ApplicationJob
     end      
 
 
-        new_vehicle = Vehicle.find_or_initialize_by(vin: response_vehicle_vin)
+        new_vehicle = Vehicle.find_or_initialize_by(api_id: api_id)
 
-          new_vehicle.api_vehicle_id = response_vehicle_id
-          new_vehicle.api_vehicle_company_id = response_vehicle_company_id
+          new_vehicle.api_id = api_id
           new_vehicle.number = response_vehicle_number
           new_vehicle.status = response_vehicle_status
           new_vehicle.ifta = response_vehicle_ifta
@@ -82,11 +77,10 @@ class CreateUpdateVehicleJob < ApplicationJob
           new_vehicle.api_last_name = response_driver_last_name
           new_vehicle.api_username = response_driver_username
           new_vehicle.api_email = response_driver_email
-          new_vehicle.api_driver_company_id = response_driver_company_id
           new_vehicle.api_status = response_driver_status
           new_vehicle.api_role = response_driver_role
           new_vehicle.save
-          sleep 0.5  
+          sleep 5  
 
     end
   end

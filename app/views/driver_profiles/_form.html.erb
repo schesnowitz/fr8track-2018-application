@@ -1,36 +1,73 @@
 <%= simple_form_for(@driver_profile) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :driver_internal_id %>
-    <%= f.input :external_id %>
-    <%= f.input :email %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :minute_logs %>
-    <%= f.input :phone %>
-    <%= f.input :phone_ext %>
-    <%= f.input :image %>
-    <%= f.input :emergency_contact_name %>
-    <%= f.input :emergency_contact_phone %>
-    <%= f.input :time_zone %>
-    <%= f.input :metric_units %>
-    <%= f.input :carrier_name %>
-    <%= f.input :carrier_street %>
-    <%= f.input :carrier_city %>
-    <%= f.input :carrier_state %>
-    <%= f.input :carrier_zip %>
-    <%= f.input :violation_alerts %>
-    <%= f.input :terminal_street %>
-    <%= f.input :terminal_city %>
-    <%= f.input :terminal_state %>
-    <%= f.input :terminal_zip %>
-    <%= f.input :drivers_license_number %>
-    <%= f.input :drivers_license_state %>
-    <%= f.input :status %>
+<%= f.error_notification %>
+<div class="form-inputs">
+</div>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Select 2</h4>
+    <h6 class="card-subtitle">Select2 gives you a customizable select box with support for searching, tagging, remote data sets, infinite scrolling, and many other highly used options.</h6>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <%= f.input :email %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :username %>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <%= f.input :phone %>
+          <%= f.input :phone_ext %>
+          <%= f.input :emergency_contact_name %>
+          <%= f.input :emergency_contact_phone %>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <label>Time Zone</label><br>
+          <%= f.select :time_zone, DriverProfile::TIME_ZONE %><br><br><br>  
+          <label>Role</label><br>
+          <%= f.select :role, DriverProfile::DRIVER_ROLE %><br><br><br>
+          <label>Violation Alerts Sent Every</label><br>
+          <%= f.select :violation_alerts, DriverProfile::VIOLATION_ALERTS %><br><br><br>
+          <label>Status</label><br>
+          <%= f.select :status, DriverProfile::DRIVER_STATUS %>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <%= f.input :carrier_name %>
+          <%= f.input :carrier_street %>
+          <%= f.input :carrier_city %>
+          <label>Carrier State</label><br>
+          <%= f.select :carrier_state, DriverProfile::STATE_PROVENCE %><br><br>
+          <%= f.input :carrier_zip %>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <%= f.input :terminal_street %>
+          <%= f.input :terminal_city %>
+          <label>Carrier State</label><br>
+          <%= f.select :terminal_state, DriverProfile::STATE_PROVENCE %><br><br>
+          <%= f.input :terminal_zip %>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <label>Driver Profile Image</label><br>
+          <%= f.input :image, as: :file, label: false %>
+          <%= f.input :drivers_license_number %>
+          <label>License State | Provence</label><br>
+          <%= f.select :drivers_license_state, DriverProfile::STATE_PROVENCE %>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+</div>
+</div>
 <% end %>

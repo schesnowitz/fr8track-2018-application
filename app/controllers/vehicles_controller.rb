@@ -6,12 +6,6 @@ class VehiclesController < ApplicationController
   def index
     @vehicles = Vehicle.all
 
-    keep_truckin_vehicles
-    @vehicles_response.vehicles.each do |data|
-    response = data.vehicle
-
-    puts response.vin
-    end
   end 
 
   # GET /vehicles/1
@@ -22,19 +16,6 @@ class VehiclesController < ApplicationController
   # GET /vehicles/new WP0AB2966NS458669
   def new
     @vehicle = Vehicle.new
-    @search = Vehicle.where(["vin LIKE ?", "%#{params[:search_data]}%"])
-    keep_truckin_vehicles
-    @vehicles_response.vehicles.each do |data|
-      @vehicle_response = data.vehicle  
-      @vehicle_driver_response = data.vehicle.current_driver 
-      
-      # @vehicles = Vehicle.all
-      
-      # puts SearchData
-      # puts "Vin Response #{@vehicle_response.vin}".class
-      # puts "Search #{@search}".class
-
-    end
   end
 
   # GET /vehicles/1/edit
@@ -58,25 +39,35 @@ class VehiclesController < ApplicationController
     end
   end
 
+
+  def put_request
+
+    @url = 'https://api.keeptruckin.com/v1'
+    @headers = { 'content-type': 'application/json', 'X-Api-Key': ENV["KEEP_TRUCKIN_KEY"] } 
+    request = HTTParty.put("#{@url}/vehicles/#{@vehicle.api_id}", headers: @headers, 
+    body: 
+    { 
+      number: @vehicle.number,
+      status: @vehicle.status, 
+      ifta: @vehicle.ifta, 
+      license_plate_state: @vehicle.license_plate_state, 
+      license_plate_number: @vehicle.license_plate_number, 
+      metric_units: @vehicle.metric_units, 
+      fuel_type: @vehicle.fuel_type, 
+      prevent_auto_odometer_entry: @vehicle.prevent_auto_odometer_entry }.to_json)
+    # @user_response = JSON.parse(@response.body, object_class: OpenStruct)
+    
+    # puts @user_response.body, @user_response.message
+    puts "request Body: #{request.body}", "request Code: #{request.code}", "request Message: #{request.message}"
+  end
   # PATCH/PUT /vehicles/1
   # PATCH/PUT /vehicles/1.json
   def update
-
-
-
-   
-    # @url = 'https://api.keeptruckin.com/v1'
-    # @headers = { 'content-type': 'application/json', 'X-Api-Key': ENV["KEEP_TRUCKIN_KEY"] } 
-    # @all_vehicles = HTTParty.get("#{@url}/vehicles", headers: @headers)
-
-    # Client.post(url,:query =>  { :param =>  "value" },
-    # :headers =>  { "Authorization" =>  "THISISMYAPIKEY"})
-
-
     respond_to do |format|
       if @vehicle.update(vehicle_params)
         format.html { redirect_to @vehicle, notice: 'Vehicle was successfully updated.' }
         format.json { render :show, status: :ok, location: @vehicle }
+        put_request
       else
         format.html { render :edit }
         format.json { render json: @vehicle.errors, status: :unprocessable_entity }
@@ -106,6 +97,6 @@ class VehiclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_params
-      params.require(:vehicle).permit(:api_vehicle_id, :api_vehicle_company_id, :number, :status, :ifta, :vin, :make, :model, :year, :license_plate_state, :license_plate_number, :metric_units, :fuel_type, :prevent_auto_odometer_entry, :edl_device_id, :edl_identifier, :edl_model, :api_driver_id, :api_first_name, :api_last_name, :api_username, :api_email, :api_driver_company_id, :api_status, :api_role)
+      params.require(:vehicle).permit(:api_id, :api_vehicle_company_id, :number, :status, :ifta, :vin, :make, :model, :year, :license_plate_state, :license_plate_number, :metric_units, :fuel_type, :prevent_auto_odometer_entry, :edl_device_id, :edl_identifier, :edl_model, :api_driver_id, :api_first_name, :api_last_name, :api_username, :api_email, :driver_internal_id, :api_status, :api_role)
     end
 end

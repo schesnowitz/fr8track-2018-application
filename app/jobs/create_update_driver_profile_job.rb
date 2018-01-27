@@ -11,8 +11,7 @@ class CreateUpdateDriverProfileJob < ApplicationJob
     @drivers_response.users.each do |data| 
     driver = data.user
     # driver = data.driver.current_driver 
-
-    id                              = driver.id
+    api_id                          = driver.id
     email                           = driver.email
     first_name                      = driver.first_name
     last_name                       = driver.last_name
@@ -59,10 +58,9 @@ class CreateUpdateDriverProfileJob < ApplicationJob
     role                            = driver.role
     status                          = driver.status
    
-
-        new_or_update = DriverProfile.find_or_initialize_by(email: email)
-        new_or_update.driver_internal_id = driver_company_id
-        new_or_update.external_id = id
+      if role == 'driver' && email != ''
+        new_or_update = DriverProfile.find_or_initialize_by(api_id: api_id)
+        new_or_update.api_id = api_id
         new_or_update.email = email 
         new_or_update.first_name = first_name 
         new_or_update.last_name = last_name 
@@ -111,8 +109,8 @@ class CreateUpdateDriverProfileJob < ApplicationJob
         new_or_update.role = role
          
         new_or_update.save
-        sleep 2  
-
+        sleep 5  
+      end
     end
   end
 end 

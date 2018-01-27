@@ -1,245 +1,57 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Driver internal:</strong>
-  <%= @driver_profile.driver_internal_id %>
-</p>
+    <h1>
+      <%= "#{@driver_profile.first_name} #{@driver_profile.last_name}" %>
+      <%= helper_status %>
+    </h1>
+    <small>
+    Duty Status: <%= helper_duty_status %>
+    </small>
 
-<p>
-  <strong>External:</strong>
-  <%= @driver_profile.external_id %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @driver_profile.email %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @driver_profile.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @driver_profile.last_name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @driver_profile.phone %>
-</p>
-
-<p>
-  <strong>Phone ext:</strong>
-  <%= @driver_profile.phone_ext %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @driver_profile.image %>
-</p>
-
-<p>
-  <strong>Emergency contact name:</strong>
-  <%= @driver_profile.emergency_contact_name %>
-</p>
-
-<p>
-  <strong>Emergency contact phone:</strong>
-  <%= @driver_profile.emergency_contact_phone %>
-</p>
-
-<p>
-  <strong>Time zone:</strong>
-  <%= @driver_profile.time_zone %>
-</p>
-
-<p>
-  <strong>Metric units:</strong>
-  <%= @driver_profile.metric_units %>
-</p>
-
-<p>
-  <strong>Carrier name:</strong>
-  <%= @driver_profile.carrier_name %>
-</p>
-
-<p>
-  <strong>Carrier street:</strong>
-  <%= @driver_profile.carrier_street %>
-</p>
-
-<p>
-  <strong>Carrier city:</strong>
-  <%= @driver_profile.carrier_city %>
-</p>
-
-<p>
-  <strong>Carrier state:</strong>
-  <%= @driver_profile.carrier_state %>
-</p>
-
-<p>
-  <strong>Carrier zip:</strong>
-  <%= @driver_profile.carrier_zip %>
-</p>
-
-<p>
-  <strong>Violation alerts:</strong>
-  <%= @driver_profile.violation_alerts %>
-</p>
-
-<p>
-  <strong>Terminal street:</strong>
-  <%= @driver_profile.terminal_street %>
-</p>
-
-<p>
-  <strong>Terminal city:</strong>
-  <%= @driver_profile.terminal_city %>
-</p>
-
-<p>
-  <strong>Terminal state:</strong>
-  <%= @driver_profile.terminal_state %>
-</p>
-
-<p>
-  <strong>Terminal zip:</strong>
-  <%= @driver_profile.terminal_zip %>
-</p>
-
-<p>
-  <strong>Cycle:</strong>
-  <%= @driver_profile.cycle %>
-</p>
-
-<p>
-  <strong>Exception 24 hour restart:</strong>
-  <%= @driver_profile.exception_24_hour_restart %>
-</p>
-
-<p>
-  <strong>Exception 8 hour break:</strong>
-  <%= @driver_profile.exception_8_hour_break %>
-</p>
-
-<p>
-  <strong>Exception wait time:</strong>
-  <%= @driver_profile.exception_wait_time %>
-</p>
-
-<p>
-  <strong>Exception short haul:</strong>
-  <%= @driver_profile.exception_short_haul %>
-</p>
-
-<p>
-  <strong>Exception ca farm school bus:</strong>
-  <%= @driver_profile.exception_ca_farm_school_bus %>
-</p>
-
-<p>
-  <strong>Cycle2:</strong>
-  <%= @driver_profile.cycle2 %>
-</p>
-
-<p>
-  <strong>Exception 24 hour restart2:</strong>
-  <%= @driver_profile.exception_24_hour_restart2 %>
-</p>
-
-<p>
-  <strong>Exception 8 hour break2:</strong>
-  <%= @driver_profile.exception_8_hour_break2 %>
-</p>
-
-<p>
-  <strong>Exception wait time2:</strong>
-  <%= @driver_profile.exception_wait_time2 %>
-</p>
-
-<p>
-  <strong>Exception short haul2:</strong>
-  <%= @driver_profile.exception_short_haul2 %>
-</p>
-
-<p>
-  <strong>Exception ca farm school bus2:</strong>
-  <%= @driver_profile.exception_ca_farm_school_bus2 %>
-</p>
-
-<p>
-  <strong>Export combined:</strong>
-  <%= @driver_profile.export_combined %>
-</p>
-
-<p>
-  <strong>Export recap:</strong>
-  <%= @driver_profile.export_recap %>
-</p>
-
-<p>
-  <strong>Export odometers:</strong>
-  <%= @driver_profile.export_odometers %>
-</p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @driver_profile.username %>
-</p>
-
-
-<p>
-  <strong>Minute logs:</strong>
-  <%= @driver_profile.minute_logs %>
-</p>
-
-<p>
-  <strong>Duty status:</strong>
-  <%= @driver_profile.duty_status %>
-</p>
-
-<p>
-  <strong>Eld mode:</strong>
-  <%= @driver_profile.eld_mode %>
-</p>
-
-<p>
-  <strong>Drivers license number:</strong>
-  <%= @driver_profile.drivers_license_number %>
-</p>
-
-<p>
-  <strong>Drivers license state:</strong>
-  <%= @driver_profile.drivers_license_state %>
-</p>
-
-<p>
-  <strong>Yard moves enabled:</strong>
-  <%= @driver_profile.yard_moves_enabled %>
-</p>
-
-<p>
-  <strong>Personal conveyance enabled:</strong>
-  <%= @driver_profile.personal_conveyance_enabled %>
-</p>
-
-<p>
-  <strong>Manual driving enabled:</strong>
-  <%= @driver_profile.manual_driving_enabled %>
-</p>
-
-<p>
-  <strong>Role:</strong>
-  <%= @driver_profile.role %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @driver_profile.status %>
-</p>
 
 <%= link_to 'Edit', edit_driver_profile_path(@driver_profile) %> |
 <%= link_to 'Back', driver_profiles_path %>
+
+
+
+<%= 
+"#{@driver_profile.terminal_street}  #{@driver_profile.terminal_city},  #{@driver_profile.terminal_state}  #{@driver_profile.terminal_zip}" %>
+<%= @driver_profile.username %>
+  
+  <%= @driver_profile.phone_ext %>
+  <%= @driver_profile.image %>
+  
+
+  <%= @driver_profile.time_zone %>
+
+
+
+
+  <ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#location">Location</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#profile">Profile</a>
+  </li>
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#dropdown1">dropdown 1</a> 
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+<%= render 'driver_profiles/show_tabs/location' %>
+<%= render 'driver_profiles/show_tabs/profile' %>
+  <div class="tab-pane fade" id="dropdown1">
+    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+  </div>
+  <div class="tab-pane fade" id="dropdown2">
+    <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
+  </div>
+</div>

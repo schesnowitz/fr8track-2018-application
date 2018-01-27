@@ -5,8 +5,8 @@
 <table class='table-striped table-bordered'>
   <thead>
     <tr>
-      <th>Driver internal</th>
-      <th>External</th>
+      <th>Company ID</th>
+      <th>Api ID</th>
       <th>Email</th>
       <th>Name</th>
 
@@ -19,8 +19,8 @@
   <tbody>
     <% @driver_profiles.each do |driver_profile| %>
       <tr>
-        <td><%= driver_profile.driver_internal_id %></td>
-        <td><%= driver_profile.external_id %></td>
+        <td><%= driver_profile.driver_company_id %></td>
+        <td><%= driver_profile.api_id %></td>
         <td><%= driver_profile.email %></td>
         <td><%= "#{driver_profile.first_name} #{driver_profile.last_name}" %></td>
 

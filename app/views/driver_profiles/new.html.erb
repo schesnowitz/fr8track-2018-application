@@ -1,5 +1,16 @@
 <h1>New Driver Profile</h1>
 
-<%= render 'form', driver_profile: @driver_profile %>
+<%= simple_form_for(@driver_profile) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+        
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Back', driver_profiles_path %>

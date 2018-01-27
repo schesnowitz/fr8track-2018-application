@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def the_fallback
+    flash[:danger] = 'You are not authorized to access this area'
     redirect_back(fallback_location: root_path)
   end 
 

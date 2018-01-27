@@ -10,7 +10,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'nokogiri', '~> 1.8', '>= 1.8.1'
 gem 'jquery-rails'
-gem 'bootstrap-sass-extras'
+# gem 'bootstrap-sass-extras'
 gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 gem 'coffee-rails', '~> 4.2'

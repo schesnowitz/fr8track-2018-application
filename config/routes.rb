@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :vehicle_locations
   require 'sidekiq/web'
   require 'sidekiq/cron/web'
   

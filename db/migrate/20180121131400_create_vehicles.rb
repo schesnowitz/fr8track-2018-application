@@ -2,10 +2,10 @@ class CreateVehicles < ActiveRecord::Migration[5.2]
   def change
     create_table :vehicles do |t|
       t.integer :api_vehicle_company_id
-      t.integer :api_vehicle_id
+      t.integer :api_id
       t.string :number
       t.string :status
-      t.boolean :ifta
+      t.string :ifta
       t.string :vin
       t.string :make
       t.string :model
@@ -14,7 +14,7 @@ class CreateVehicles < ActiveRecord::Migration[5.2]
       t.string :license_plate_number
       t.boolean :metric_units
       t.string :fuel_type
-      t.boolean :prevent_auto_odometer_entry
+      t.string :prevent_auto_odometer_entry
       t.integer :edl_device_id
       t.string :edl_identifier
       t.string :edl_model
@@ -23,7 +23,7 @@ class CreateVehicles < ActiveRecord::Migration[5.2]
       t.string :api_last_name
       t.string :api_username
       t.string :api_email
-      t.string :api_driver_company_id
+      t.string :driver_internal_id
       t.string :api_status
       t.string :api_role
 

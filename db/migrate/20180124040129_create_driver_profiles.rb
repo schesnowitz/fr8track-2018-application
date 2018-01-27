@@ -1,9 +1,10 @@
 class CreateDriverProfiles < ActiveRecord::Migration[5.2]
   def change
     create_table :driver_profiles do |t|
-      t.string :driver_internal_id
-      t.integer :external_id
+      t.string :driver_company_id
+      t.integer :api_id
       t.string :email
+      t.string :password
       t.string :first_name
       t.string :last_name
       t.string :phone

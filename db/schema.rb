@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_24_040129) do
+ActiveRecord::Schema.define(version: 2018_01_27_153125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,9 +71,10 @@ ActiveRecord::Schema.define(version: 2018_01_24_040129) do
   end
 
   create_table "driver_profiles", force: :cascade do |t|
-    t.string "driver_internal_id"
-    t.integer "external_id"
+    t.string "driver_company_id"
+    t.integer "api_id"
     t.string "email"
+    t.string "password"
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
@@ -150,12 +151,41 @@ ActiveRecord::Schema.define(version: 2018_01_24_040129) do
     t.index ["unlock_token"], name: "index_drivers_on_unlock_token", unique: true
   end
 
+  create_table "vehicle_locations", force: :cascade do |t|
+    t.string "location_id"
+    t.string "located_at"
+    t.float "latitude"
+    t.float "longitude"
+    t.float "bearing"
+    t.float "engine_hours"
+    t.integer "driver_id"
+    t.float "fuel"
+    t.float "odometer"
+    t.float "speed"
+    t.string "location_description"
+    t.string "movement_type"
+    t.string "driver_first_name"
+    t.string "driver_last_name"
+    t.string "driver_username"
+    t.string "driver_company_id"
+    t.string "driver_status"
+    t.string "driver_role"
+    t.integer "edl_id"
+    t.string "edl_identifier"
+    t.string "edl_model"
+    t.date "date"
+    t.integer "driver_profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["driver_profile_id"], name: "index_vehicle_locations_on_driver_profile_id"
+  end
+
   create_table "vehicles", force: :cascade do |t|
     t.integer "api_vehicle_company_id"
-    t.integer "api_vehicle_id"
+    t.integer "api_id"
     t.string "number"
     t.string "status"
-    t.boolean "ifta"
+    t.string "ifta"
     t.string "vin"
     t.string "make"
     t.string "model"
@@ -164,7 +194,7 @@ ActiveRecord::Schema.define(version: 2018_01_24_040129) do
     t.string "license_plate_number"
     t.boolean "metric_units"
     t.string "fuel_type"
-    t.boolean "prevent_auto_odometer_entry"
+    t.string "prevent_auto_odometer_entry"
     t.integer "edl_device_id"
     t.string "edl_identifier"
     t.string "edl_model"
@@ -173,7 +203,7 @@ ActiveRecord::Schema.define(version: 2018_01_24_040129) do
     t.string "api_last_name"
     t.string "api_username"
     t.string "api_email"
-    t.string "api_driver_company_id"
+    t.string "driver_internal_id"
     t.string "api_status"
     t.string "api_role"
     t.datetime "created_at", null: false
