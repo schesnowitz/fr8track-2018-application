@@ -230,7 +230,7 @@ ActiveRecord::Schema.define(version: 2018_01_30_062355) do
     t.integer "driver_id"
     t.integer "broker_profile_id"
     t.integer "dispatcher_id"
-    t.integer "vehcile_id"
+    t.integer "vehicle_id"
     t.string "description"
     t.string "broker_rep_name"
     t.string "broker_rep_email"
@@ -243,7 +243,7 @@ ActiveRecord::Schema.define(version: 2018_01_30_062355) do
     t.index ["broker_profile_id"], name: "index_shipments_on_broker_profile_id"
     t.index ["dispatcher_id"], name: "index_shipments_on_dispatcher_id"
     t.index ["driver_id"], name: "index_shipments_on_driver_id"
-    t.index ["vehcile_id"], name: "index_shipments_on_vehcile_id"
+    t.index ["vehicle_id"], name: "index_shipments_on_vehicle_id"
   end
 
   create_table "vehicle_locations", force: :cascade do |t|

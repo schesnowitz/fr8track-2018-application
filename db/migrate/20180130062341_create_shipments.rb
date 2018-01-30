@@ -60,7 +60,7 @@ class CreateShipments < ActiveRecord::Migration[5.2]
       t.integer :driver_id, index: true
       t.integer :broker_profile_id, index: true
       t.integer :dispatcher_id, index: true
-      t.integer :vehcile_id, index: true
+      t.integer :vehicle_id, index: true
       t.string :description
       t.string :broker_rep_name
       t.string :broker_rep_email

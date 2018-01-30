@@ -15,15 +15,18 @@ class ShipmentsController < ApplicationController
   # GET /shipments/new
   def new
     @shipment = Shipment.new
+    @vehicles = Vehicle.all
   end
 
   # GET /shipments/1/edit
   def edit
+    @vehicles = Vehicle.all
   end
 
   # POST /shipments
   # POST /shipments.json
   def create
+    @vehicles = Vehicle.all
     @shipment = Shipment.new(shipment_params)
 
     respond_to do |format|
@@ -31,6 +34,7 @@ class ShipmentsController < ApplicationController
         format.html { redirect_to @shipment, notice: 'Shipment was successfully created.' }
         format.json { render :show, status: :created, location: @shipment }
       else
+        flash[:error] = "#{@shipment.errors.full_messages.to_sentence}"
         format.html { render :new }
         format.json { render json: @shipment.errors, status: :unprocessable_entity }
       end
@@ -40,11 +44,13 @@ class ShipmentsController < ApplicationController
   # PATCH/PUT /shipments/1
   # PATCH/PUT /shipments/1.json
   def update
+    @vehicles = Vehicle.all
     respond_to do |format|
       if @shipment.update(shipment_params)
         format.html { redirect_to @shipment, notice: 'Shipment was successfully updated.' }
         format.json { render :show, status: :ok, location: @shipment }
       else
+        flash[:error] = "#{@shipment.errors.full_messages.to_sentence}"
         format.html { render :edit }
         format.json { render json: @shipment.errors, status: :unprocessable_entity }
       end
@@ -134,7 +140,7 @@ class ShipmentsController < ApplicationController
                                         :broker_rep_cell,
                                         :broker_after_hours_instructions,
                                         :has_multiple_pd,
-                                        :vehcile_id
+                                        :vehicle_id
 
                                         )
     end

@@ -1,4 +1,7 @@
 class Shipment < ApplicationRecord
+ 
+  belongs_to :vehicle
+
   Commodity =
 [
   "Household Goods",
