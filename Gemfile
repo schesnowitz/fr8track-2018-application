@@ -26,6 +26,7 @@ gem 'devise', '~> 4.4'
 gem 'geocoder', '~> 1.4', '>= 1.4.5'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'httparty', '~> 0.15.6'
+gem 'local_time', '~> 2.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

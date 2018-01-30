@@ -48,4 +48,4 @@
 
 //= require custom_themes.js
 //= require reload.js 
-
+//= require local-time.js 

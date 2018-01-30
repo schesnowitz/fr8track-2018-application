@@ -19,13 +19,13 @@ class CreateVehicles < ActiveRecord::Migration[5.2]
       t.string :edl_identifier
       t.string :edl_model
       t.integer :api_driver_id
-      t.string :api_first_name
-      t.string :api_last_name
-      t.string :api_username
-      t.string :api_email
+      t.string :driver_first_name
+      t.string :driver_last_name
+      t.string :driver_username
+      t.string :driver_email
       t.string :driver_internal_id
-      t.string :api_status
-      t.string :api_role
+      t.string :driver_status
+      t.string :driver_role
 
       t.timestamps
     end

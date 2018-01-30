@@ -1,0 +1,66 @@
+<%= simple_form_for(@shipment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :commodity %>
+    <%= f.input :weight %>
+    <%= f.input :miles_or_km %>
+    <%= f.input :load_size %>
+    <%= f.input :miles %>
+    <%= f.input :kilometers %>
+    <%= f.input :invoice_price %>
+    <%= f.input :booking_fee %>
+    <%= f.input :percent_deducted %>
+    <%= f.input :total_company_expenses %>
+    <%= f.input :rate_to_owner_operator %>
+    <%= f.input :percent_coverted_to_dollars %>
+    <%= f.input :driver_cents_pm %>
+    <%= f.input :rate_after_booking_fee %>
+    <%= f.input :agent_fee %>
+    <%= f.input :pick_up_date %>
+    <%= f.input :pick_up_time %>
+    <%= f.input :delivery_date %>
+    <%= f.input :delivery_time %>
+    <%= f.input :delivery_notes %>
+    <%= f.input :equipment_type %>
+    <%= f.input :status_name %>
+    <%= f.input :updated_by %>
+    <%= f.input :special_instructions %>
+    <%= f.input :dimentions %>
+    <%= f.input :origin_street %>
+    <%= f.input :origin_city %>
+    <%= f.input :origin_state_provence %>
+    <%= f.input :origin_postal_code %>
+    <%= f.input :origin_phone %>
+    <%= f.input :origin_contact %>
+    <%= f.input :destination_street %>
+    <%= f.input :destination_city %>
+    <%= f.input :destination_state_provence %>
+    <%= f.input :destination_postal_code %>
+    <%= f.input :destination_phone %>
+    <%= f.input :destination_contact %>
+    <%= f.input :shipper_company_name %>
+    <%= f.input :receiver_company_name %>
+    <%= f.input :origin_latitude %>
+    <%= f.input :origin_longitude %>
+    <%= f.input :destination_latitude %>
+    <%= f.input :destination_longitude %>
+    <%= f.input :percentage_id %>
+    <%= f.input :kilograms %>
+    <%= f.input :pounds %>
+    <%= f.input :is_kilograms %>
+    <%= f.input :is_pounds %>
+    <%= f.input :is_hazmat %>
+    <%= f.input :needs_temp_control %>
+    <%= f.input :is_fahrenheit %>
+    <%= f.input :is_celsius %>
+    <%= f.input :fahrenheit %>
+    <%= f.input :celsius %>
+    <%= f.input :pick_up_notes %>
+    <%= f.input :broker_shipper_load_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

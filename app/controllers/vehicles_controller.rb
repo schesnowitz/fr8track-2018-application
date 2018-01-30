@@ -6,13 +6,16 @@ class VehiclesController < ApplicationController
   def index
     @vehicles = Vehicle.all
 
-  
- 
+    id = Vehicle.pluck(:api_id) # integer array
+
+    
   end 
 
   # GET /vehicles/1
   # GET /vehicles/1.json
   def show
+    @locations = VehicleLocation.where(api_vehicle_id: @vehicle.api_id)
+    @current_location = @locations.last
   end
 
   # GET /vehicles/new WP0AB2966NS458669
@@ -99,6 +102,6 @@ class VehiclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_params
-      params.require(:vehicle).permit(:api_id, :api_vehicle_company_id, :number, :status, :ifta, :vin, :make, :model, :year, :license_plate_state, :license_plate_number, :metric_units, :fuel_type, :prevent_auto_odometer_entry, :edl_device_id, :edl_identifier, :edl_model, :api_driver_id, :api_first_name, :api_last_name, :api_username, :api_email, :driver_internal_id, :api_status, :api_role)
+      params.require(:vehicle).permit(:api_id, :api_vehicle_company_id, :number, :status, :ifta, :vin, :make, :model, :year, :license_plate_state, :license_plate_number, :metric_units, :fuel_type, :prevent_auto_odometer_entry, :edl_device_id, :edl_identifier, :edl_model, :api_driver_id, :driver_first_name, :driver_last_name, :driver_username, :driver_email, :driver_internal_id, :driver_status, :driver_role)
     end
 end

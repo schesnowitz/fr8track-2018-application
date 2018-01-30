@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Location:</strong>
+  <strong>Location ID:</strong>
   <%= @vehicle_location.location_id %>
 </p>
 
 <p>
   <strong>Located at:</strong>
-  <%= @vehicle_location.located_at %>
+<%= local_time(@vehicle_location.time_located_at, format: "%A, %d %b %Y %l:%M %p") %>
 </p>
 
 <p>
@@ -26,13 +26,19 @@
 </p>
 
 <p>
+  <strong>Vehicle API ID:</strong>
+  <%= @vehicle_location.api_vehicle_id %>
+</p>
+
+
+<p>
   <strong>Engine hours:</strong>
   <%= @vehicle_location.engine_hours %>
 </p>
 
 <p>
-  <strong>Driver:</strong>
-  <%= @vehicle_location.driver_id %>
+  <strong>Driver API ID:</strong>
+  <%= @vehicle_location.driver_api_id %>
 </p>
 
 <p>
@@ -55,65 +61,27 @@
   <%= @vehicle_location.location_description %>
 </p>
 
-<p>
-  <strong>Movement type:</strong>
-  <%= @vehicle_location.movement_type %>
-</p>
 
-<p>
-  <strong>Driver first name:</strong>
-  <%= @vehicle_location.driver_first_name %>
-</p>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
 
-<p>
-  <strong>Driver last name:</strong>
-  <%= @vehicle_location.driver_last_name %>
-</p>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+<script>
+function initMap() {
+  var uluru = {lat: <%= @vehicle_location.latitude %>, lng: <%= @vehicle_location.longitude %>};
+  var map = new google.maps.Map(document.getElementById('map'), { 
+    zoom: 10,
+    center: uluru
+  });
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map
+  });
+}</script>
 
-<p>
-  <strong>Driver username:</strong>
-  <%= @vehicle_location.driver_username %>
-</p>
 
-<p>
-  <strong>Driver company:</strong>
-  <%= @vehicle_location.driver_company_id %>
-</p>
-
-<p>
-  <strong>Driver status:</strong>
-  <%= @vehicle_location.driver_status %>
-</p>
-
-<p>
-  <strong>Driver role:</strong>
-  <%= @vehicle_location.driver_role %>
-</p>
-
-<p>
-  <strong>Edl:</strong>
-  <%= @vehicle_location.edl_id %>
-</p>
-
-<p>
-  <strong>Edl identifier:</strong>
-  <%= @vehicle_location.edl_identifier %>
-</p>
-
-<p>
-  <strong>Edl model:</strong>
-  <%= @vehicle_location.edl_model %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @vehicle_location.date %>
-</p>
-
-<p>
-  <strong>Driver profile:</strong>
-  <%= @vehicle_location.driver_profile_id %>
-</p>
-
-<%= link_to 'Edit', edit_vehicle_location_path(@vehicle_location) %> |
-<%= link_to 'Back', vehicle_locations_path %>

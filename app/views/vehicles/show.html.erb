@@ -86,35 +86,39 @@
 </p>
 
 <p>
-  <strong>Api first name:</strong>
-  <%= @vehicle.api_first_name %>
-</p>
-
-<p>
-  <strong>Api last name:</strong>
-  <%= @vehicle.api_last_name %>
-</p>
-
-<p>
-  <strong>Api username:</strong>
-  <%= @vehicle.api_username %>
-</p>
-
-<p>
-  <strong>Api email:</strong>
-  <%= @vehicle.api_email %>
+  <strong>Driver Name:</strong>
+  <%= "#{@vehicle.driver_first_name} #{@vehicle.driver_last_name}" %>
 </p>
 
 
 <p>
-  <strong>Api status:</strong>
-  <%= @vehicle.api_status %>
+  <strong>Driver username:</strong>
+  <%= @vehicle.driver_username %>
 </p>
 
 <p>
-  <strong>Api role:</strong>
-  <%= @vehicle.api_role %>
+  <strong>Driver email:</strong>
+  <%= @vehicle.driver_email %>
 </p>
+
+
+<p>
+  <strong>Driver status:</strong>
+  <%= @vehicle.driver_status %>
+</p>
+
+<p>
+  <strong>Driver role:</strong>
+  <%= @vehicle.driver_role %>
+</p>
+<h3>Locations</h3>
+<% @locations.each do |location| %>
+<%= location.latitude %>
+<%= location.longitude %>
+<%= local_time(location.time_located_at, format: "%A, %d %b %Y %l:%M %p") %>
+
+<%= link_to "Show Location", vehicle_location_path(location) %>
+<% end %>
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
 <%= link_to 'Back', vehicles_path %>

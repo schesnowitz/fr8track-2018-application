@@ -9,7 +9,7 @@
 <table class='table-striped table-bordered' id='vehicle-index-table'>
   <thead>
     <tr>
-
+      <th>Driver</th>
       <th>API ID</th>
       <th>Number</th>
       <th>Status</th>
@@ -28,6 +28,7 @@
   <tbody>
     <% @vehicles.each do |vehicle| %>
       <tr>
+        <td><%= "#{vehicle.driver_first_name} #{vehicle.driver_last_name}" %></td>
         <td><%= vehicle.api_id %></td>
         <td><%= vehicle.number %></td>
         <td><%= vehicle.status %></td>

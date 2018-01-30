@@ -152,32 +152,25 @@ ActiveRecord::Schema.define(version: 2018_01_27_153125) do
   end
 
   create_table "vehicle_locations", force: :cascade do |t|
+    t.integer "api_vehicle_id"
     t.string "location_id"
-    t.string "located_at"
+    t.datetime "time_located_at"
     t.float "latitude"
     t.float "longitude"
     t.float "bearing"
     t.float "engine_hours"
-    t.integer "driver_id"
+    t.integer "driver_api_id"
     t.float "fuel"
     t.float "odometer"
     t.float "speed"
     t.string "location_description"
-    t.string "movement_type"
-    t.string "driver_first_name"
-    t.string "driver_last_name"
-    t.string "driver_username"
     t.string "driver_company_id"
-    t.string "driver_status"
-    t.string "driver_role"
     t.integer "edl_id"
     t.string "edl_identifier"
     t.string "edl_model"
-    t.date "date"
-    t.integer "driver_profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["driver_profile_id"], name: "index_vehicle_locations_on_driver_profile_id"
+    t.index ["driver_api_id"], name: "index_vehicle_locations_on_driver_api_id"
   end
 
   create_table "vehicles", force: :cascade do |t|
@@ -199,13 +192,13 @@ ActiveRecord::Schema.define(version: 2018_01_27_153125) do
     t.string "edl_identifier"
     t.string "edl_model"
     t.integer "api_driver_id"
-    t.string "api_first_name"
-    t.string "api_last_name"
-    t.string "api_username"
-    t.string "api_email"
+    t.string "driver_first_name"
+    t.string "driver_last_name"
+    t.string "driver_username"
+    t.string "driver_email"
     t.string "driver_internal_id"
-    t.string "api_status"
-    t.string "api_role"
+    t.string "driver_status"
+    t.string "driver_role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

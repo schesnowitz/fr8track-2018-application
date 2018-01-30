@@ -3,7 +3,6 @@ create_update_driver_profile_job:
   class: "CreateUpdateDriverProfileJob"  
   queue: default 
 
-
 create_update_vehicle_job:
   cron: "* * * * *"
   class: "CreateUpdateVehicleJob"  

@@ -73,12 +73,12 @@ class CreateUpdateVehicleJob < ApplicationJob
           new_vehicle.edl_identifier = response_edl_identifier
           new_vehicle.edl_model = response_edl_model
           new_vehicle.api_driver_id = response_driver_id
-          new_vehicle.api_first_name = response_driver_first_name
-          new_vehicle.api_last_name = response_driver_last_name
-          new_vehicle.api_username = response_driver_username
-          new_vehicle.api_email = response_driver_email
-          new_vehicle.api_status = response_driver_status
-          new_vehicle.api_role = response_driver_role
+          new_vehicle.driver_first_name = response_driver_first_name
+          new_vehicle.driver_last_name = response_driver_last_name
+          new_vehicle.driver_username = response_driver_username
+          new_vehicle.driver_email = response_driver_email
+          new_vehicle.driver_status = response_driver_status
+          new_vehicle.driver_role = response_driver_role
           new_vehicle.save
           sleep 5  
 

@@ -7,5 +7,5 @@ Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'bo
 
 
 Rails.application.config.assets.precompile += %w( driver_profile_show.js )
-
+Rails.application.config.assets.precompile += %w( vehicle_location_show.js )
 

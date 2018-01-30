@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :vehicle_locations
+
+  resources :broker_profiles
+  resources :shipments
   require 'sidekiq/web'
   require 'sidekiq/cron/web'
   
   resources :vehicles
+  resources :vehicle_locations
+
   devise_for :drivers, path: 'drivers', controllers: { registrations: 'drivers/registrations'} 
   resources :driver_profiles do
     resources :drivers
