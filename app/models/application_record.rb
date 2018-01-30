@@ -1,7 +1,7 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
-  STATE_PROVENCE = [
+  StateProvence = [
     ["Alabama", "AL"],
     ["Alaska", "AK"],
     ["American Samoa", "AS"],

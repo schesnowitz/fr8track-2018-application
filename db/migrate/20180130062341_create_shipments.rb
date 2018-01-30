@@ -57,7 +57,17 @@ class CreateShipments < ActiveRecord::Migration[5.2]
       t.decimal :celsius
       t.string :pick_up_notes
       t.string :broker_shipper_load_id
-
+      t.integer :driver_id, index: true
+      t.integer :broker_profile_id, index: true
+      t.integer :dispatcher_id, index: true
+      t.integer :vehcile_id, index: true
+      t.string :description
+      t.string :broker_rep_name
+      t.string :broker_rep_email
+      t.string :broker_rep_number
+      t.string :broker_rep_cell
+      t.string :broker_after_hours_instructions
+      t.boolean :has_multiple_pd
       t.timestamps
     end
   end

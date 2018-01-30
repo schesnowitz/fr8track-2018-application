@@ -77,33 +77,23 @@
 
 <p>
   <strong>Pick up date:</strong>
-  <%= @shipment.pick_up_date %>
+  <%= local_time(@shipment.pick_up_date, format: "%A, %d %b %Y") if !@shipment.pick_up_date.nil? %>
 </p>
 
-<p>
-  <strong>Pick up time:</strong>
-  <%= @shipment.pick_up_time %>
-</p>
+
 
 <p>
   <strong>Delivery date:</strong>
-  <%= @shipment.delivery_date %>
+  <%= local_time(@shipment.delivery_date, format: "%A, %d %b %Y") if !@shipment.delivery_date.nil? %>
 </p>
 
-<p>
-  <strong>Delivery time:</strong>
-  <%= @shipment.delivery_time %>
-</p>
 
 <p>
   <strong>Delivery notes:</strong>
   <%= @shipment.delivery_notes %>
 </p>
 
-<p>
-  <strong>Equipment type:</strong>
-  <%= @shipment.equipment_type %>
-</p>
+
 
 <p>
   <strong>Status name:</strong>

@@ -20,7 +20,7 @@
 //= require bootstrap
 //= require rails-ujs
 //= require activestorage
-
+//= require turbolinks
 
 
 //= require jquery.scrollbar/jquery.scrollbar.min.js
@@ -49,3 +49,4 @@
 //= require custom_themes.js
 //= require reload.js 
 //= require local-time.js 
+//= require masked.js 
