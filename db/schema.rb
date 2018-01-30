@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2018_01_30_062355) do
     t.string "broker_mc_number"
     t.string "carrier_mc_number"
     t.string "us_dot_number"
-    t.string "contact_person0"
+    t.string "contact_person"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

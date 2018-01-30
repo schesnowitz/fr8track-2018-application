@@ -14,7 +14,7 @@ class CreateBrokerProfiles < ActiveRecord::Migration[5.2]
       t.string :broker_mc_number
       t.string :carrier_mc_number
       t.string :us_dot_number
-      t.string :contact_person0
+      t.string :contact_person
 
       t.timestamps
     end

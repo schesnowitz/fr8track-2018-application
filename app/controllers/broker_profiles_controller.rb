@@ -69,6 +69,6 @@ class BrokerProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def broker_profile_params
-      params.require(:broker_profile).permit(:company_name, :street, :city, :state_provence, :postal_code, :telephone, :fax, :email, :website, :logo, :broker_mc_number, :carrier_mc_number, :us_dot_number, :contact_person0)
+      params.require(:broker_profile).permit(:company_name, :street, :city, :state_provence, :postal_code, :telephone, :fax, :email, :website, :logo, :broker_mc_number, :carrier_mc_number, :us_dot_number, :contact_person)
     end
 end

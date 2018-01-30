@@ -1,6 +1,7 @@
 class Vehicle < ApplicationRecord
   validates :vin, uniqueness: { case_sensitive: false }
   has_many :shipments
+  has_many :broker_profiles
   FUEL_TYPE = %w(
     diesel 
     gasoline 

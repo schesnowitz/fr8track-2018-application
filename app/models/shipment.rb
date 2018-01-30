@@ -1,6 +1,7 @@
 class Shipment < ApplicationRecord
  
   belongs_to :vehicle
+  belongs_to :broker_profile
 
   Commodity =
 [

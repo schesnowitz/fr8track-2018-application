@@ -16,7 +16,7 @@
           <small>Select Vehicle</small>
 
  <%= f.collection_select :vehicle_id, Vehicle.all.order(:driver_first_name),
-    :id, :driver_full_name, {include_blank: "Select Driver"}, data: {url: vehicle_path(:id)}, class: 'chosen-select' %>
+    :id, :driver_full_name, {include_blank: "Select Driver"} %>
         </div>
         <div class="quick-stats__chart peity-bar">6,4,8,6,5,6,7,8,3,5,9</div>
       </div>
@@ -24,7 +24,9 @@
         <div class="quick-stats__info">
           <h2>987,459</h2>
           <small>Select Broker</small>
-          <%= f.input :broker_profile_id, input_html: { class: 'form-control form-control-sm' } %>
+ <%= f.collection_select :broker_profile_id, BrokerProfile.all.order(:company_name),
+    :id, :company_name, {include_blank: "Select Broker"} %>
+
         </div>
         <div class="quick-stats__chart peity-bar">6,4,8,6,5,6,7,8,3,5,9</div>
       </div>

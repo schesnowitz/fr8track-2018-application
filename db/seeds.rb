@@ -47,3 +47,22 @@ app_setting.theme_color = '8'
 app_setting.save 
 puts app_setting.inspect
 
+
+5.times do
+broker_profile = BrokerProfile.create!(
+company_name: Faker::Company.name,
+street: Faker::Address.street_name,
+city: Faker::Address.city,
+state_provence: Faker::Address.state,
+postal_code: Faker::Address.postcode,
+telephone:Faker::PhoneNumber.phone_number,
+fax:Faker::PhoneNumber.phone_number,
+email: Faker::Internet.email,
+website: Faker::Internet.url,
+broker_mc_number:Faker::Number.number(5),
+carrier_mc_number:Faker::Number.number(6),
+us_dot_number:Faker::Number.number(4),
+contact_person: Faker::Name.first_name
+)
+puts broker_profile.inspect
+end
