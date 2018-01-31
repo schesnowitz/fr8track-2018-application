@@ -263,6 +263,8 @@ ActiveRecord::Schema.define(version: 2018_01_30_062355) do
     t.integer "edl_id"
     t.string "edl_identifier"
     t.string "edl_model"
+    t.string "driver_first_name"
+    t.string "driver_last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["driver_api_id"], name: "index_vehicle_locations_on_driver_api_id"

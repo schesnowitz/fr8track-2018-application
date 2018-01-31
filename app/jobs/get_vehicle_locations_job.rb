@@ -25,7 +25,8 @@ class GetVehicleLocationsJob < ApplicationJob
   if !driver.nil?
 
     driver_api_id                   = driver.id   
-
+    driver_first_name               = driver.first_name  
+    driver_last_name                = driver.last_name  
   end
 
   if !location.nil?
@@ -43,21 +44,23 @@ class GetVehicleLocationsJob < ApplicationJob
 
 
         location = VehicleLocation.new
-        location.driver_api_id = driver_api_id
-        location.location_id = location_id
-        location.latitude = lat
-        location.longitude = lon  
-        location.api_vehicle_id  = vehicle_api_id
-        location.time_located_at = time_located_at
-        location.engine_hours = engine_hours
-        location.bearing = bearing
-        location.location_description = location_description
-        location.speed = speed
-        location.odometer = odometer
-        location.fuel = fuel
+        location.driver_api_id              = driver_api_id
+        location.location_id                = location_id
+        location.latitude                   = lat
+        location.longitude                  = lon  
+        location.api_vehicle_id             = vehicle_api_id
+        location.time_located_at            = time_located_at
+        location.engine_hours               = engine_hours
+        location.bearing                    = bearing
+        location.location_description       = location_description
+        location.speed                      = speed
+        location.odometer                   = odometer
+        location.fuel                       = fuel
+        location.driver_first_name          = driver_first_name 
+        location.driver_last_name           = driver_last_name 
 
         location.save
-        sleep 5  
+        sleep 2 
     end
   end
 end 

@@ -5,6 +5,7 @@ class VehicleLocationsController < ApplicationController
   # GET /vehicle_locations.json
   def index
     @vehicle_locations = VehicleLocation.all  
+    @vehicle_map_locations = VehicleLocation.last(1) 
   end
 
   # GET /vehicle_locations/1
@@ -70,6 +71,6 @@ class VehicleLocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_location_params
-      params.require(:vehicle_location).permit(:location_id, :time_located_at, :latitude, :longitude, :bearing, :engine_hours, :driver_api_id, :fuel, :odometer, :speed, :location_description, :driver_company_id, :edl_id, :edl_identifier, :edl_model, :api_vehicle_id )
+      params.require(:vehicle_location).permit(:location_id, :time_located_at, :latitude, :longitude, :bearing, :engine_hours, :driver_api_id, :fuel, :odometer, :speed, :location_description, :driver_company_id, :edl_id, :edl_identifier, :edl_model, :api_vehicle_id, :driver_first_name, :driver_last_name )
     end
 end

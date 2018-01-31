@@ -17,6 +17,8 @@ class CreateVehicleLocations < ActiveRecord::Migration[5.2]
       t.integer :edl_id 
       t.string :edl_identifier 
       t.string :edl_model
+      t.string :driver_first_name
+      t.string :driver_last_name
       t.timestamps
     end
   end

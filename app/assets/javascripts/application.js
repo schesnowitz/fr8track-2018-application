@@ -21,7 +21,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-
+//= require_tree .
 
 //= require jquery.scrollbar/jquery.scrollbar.min.js
 //= require jquery-scrollLock/jquery-scrollLock.min.js
@@ -50,3 +50,11 @@
 //= require reload.js 
 //= require local-time.js 
 //= require masked.js 
+
+$(document).on('turbolinks:load', function(){
+  if ($('#map').length > 0){
+    var google_map = $('meta[name=google_maps]').attr("content");
+    $.getScript(`https://maps.googleapis.com/maps/api/js?key=${google_map}&callback=initMap`);
+  }
+})  
+

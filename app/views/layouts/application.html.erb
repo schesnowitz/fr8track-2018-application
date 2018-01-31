@@ -4,7 +4,7 @@
     <title>FrontEnd</title>
 
     <%= csrf_meta_tags %>
-
+    <%= tag :meta, name: 'google_maps', content: ENV["GOOGLE_MAPS_KEY"] %>
 
 
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
 
 
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'css/app.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -50,7 +50,4 @@
 
   </body>
 </html>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["GOOGLE_MAPS_KEY"]%>&callback=initMap">
-</script> 
 

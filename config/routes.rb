@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   require 'sidekiq/cron/web'
   
   resources :vehicles
-  resources :vehicle_locations
+
+  resources :vehicle_locations do
+    collection do 
+      get :map
+    end
+  end
 
   devise_for :drivers, path: 'drivers', controllers: { registrations: 'drivers/registrations'} 
   resources :driver_profiles do
