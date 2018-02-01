@@ -5,7 +5,7 @@ class VehicleLocationsController < ApplicationController
   # GET /vehicle_locations.json
   def index
     @vehicle_locations = VehicleLocation.all  
-    @vehicle_map_locations = VehicleLocation.last(1) 
+    @vehicle_map_locations = VehicleLocation.all
   end
 
   # GET /vehicle_locations/1
