@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  devise_for :users
   resources :broker_profiles
   resources :shipments
   require 'sidekiq/web'

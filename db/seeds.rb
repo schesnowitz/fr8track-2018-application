@@ -34,7 +34,8 @@
 #   driver_profile_3.driver_string_id = '40268793320186691c34cdb5bb1d4567'
 #   driver_profile_3.save
 # puts driver_profile_3.inspect
-
+# rails generate devise User
+# 
 
 app_setting = AppSetting.create!(
   hidden_sidebar: false,

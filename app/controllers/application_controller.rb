@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :app_setting
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
 
   def app_setting
     @app_setting = AppSetting.find(1)
@@ -10,10 +12,10 @@ class ApplicationController < ActionController::Base
     redirect_back(fallback_location: root_path)
   end 
 
-  def keep_truckin_vehicles
-    @url = 'https://api.keeptruckin.com/v1'
-    @headers = { 'content-type': 'application/json', 'X-Api-Key': ENV["KEEP_TRUCKIN_KEY"] } 
-    @all_vehicles = HTTParty.get("#{@url}/vehicles", headers: @headers)
-    @vehicles_response = JSON.parse(@all_vehicles.body, object_class: OpenStruct)
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:account_update, keys: [:admin])
   end
+
 end
